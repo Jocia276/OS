@@ -1,0 +1,17 @@
+Se da ca prim parametru un nume de fisier. Acesta conține informații despre diverse filme și seriale.
+Fiecare linie conține informații despre câte un film sau serial în formatul urmator:
+-nume film/serial - poate conține doar caractere afla-numerice sau caracterul spațiu
+-tip - poate fi unul din stringurile: "film" sau "serial"
+-durata - durata in minute a filmului sau unui episod în cazul in care este serial
+-anul apariției - anul apariției, doar cifre
+-genul filmului - poate conține doar litere. exemple: drama, comedie, actiune, horror, romantic etc; doar un gen, nu mai multe.
+Informațiile vor fi separate prin caracterul punct și virgula
+Exemplu de linie: Home Alone;film;103;1990;comedie
+
+CERINTA:
+
+Se dă în al doilea parametru un număr întreg ce reprezintă un an.
+Se cere să se afișeze numele filmelor/serialelor care au aparut începând cu anul respectiv.
+Rezultatul va fi afișat sortat alfabetic la ieșirea standard, cate un nume de film/serial pe fiecare linie.
+Pe lângă validarea primului parametru,validați și că al doilea parametru respectă formatul unui an (este format din 4 cifre).
+!Nu pot fi utilizate utilitarele sed, grep si awk
