@@ -12,8 +12,15 @@ if [[ $gen  =~ ^[a-zA-Z0-9]+$ ]];then
 	nrFilme=$(grep -c "film.*$gen" $filename);
 	nrSeriale=$(grep -c "serial.*$gen" $filename);
 
-	echo $nrFilme
-	echo $nrSeriale
+	if [ $nrFilme != 0 ]; then
+		echo $nrFilme
+	else
+		echo $'\n'
+	fi
+	
+	if [ $nrSeriale != 0 ]; then
+		echo $nrSeriale
+	fi
 else 
 	echo "parametru invalid" >&2
 fi
