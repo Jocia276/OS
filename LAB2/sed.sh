@@ -6,13 +6,10 @@ if  [ ! -f $filename ]; then
 	exit 1
 fi
 
-if [[ ! $caracter =~ ^[a-zA-Z0-9]+$ ]]; then
-	if [ ${#caracter} != 1 ]; then
-		echo "parametru invalid" >&2
-	fi
-else
-	echo "parametru invalid" >&2
+if [[ ! "$caracter" =~ ^.$ ]]; then
+  echo "parametru invalid" >&2
+  exit 1
 fi
 
 
-sed -r "s/;/$caracter/g" $filename
+sed -i "s/;/"$caracter"/g" $filename

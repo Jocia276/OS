@@ -6,21 +6,15 @@ if  [ ! -f $filename ]; then
 	exit 1
 fi
 
-if [[ $gen  =~ ^[a-zA-Z0-9]+$ ]];then
 
-
-	nrFilme=$(grep -c "film.*$gen" $filename);
-	nrSeriale=$(grep -c "serial.*$gen" $filename);
-
-	if [ $nrFilme != 0 ]; then
-		echo $nrFilme
-	else
-		echo $'\n'
-	fi
-	
-	if [ $nrSeriale != 0 ]; then
-		echo $nrSeriale
-	fi
-else 
-	echo "parametru invalid" >&2
+if [[ ! "$gen" =~ ^[a-zA-Z]+$ ]]; then
+    echo "parametru invalid" >&2
+    exit 1
 fi
+
+nrFilme=$(grep -c ";film;.*;$gen$" "$filename")
+nrSeriale=$(grep -c ";serial;.*;$gen$" "$filename")
+
+echo $nrFilme
+echo $nrSeriale
+
